@@ -49,7 +49,7 @@
     "summary": {
       "type": "string",
       "description": "Short (≤80 chars) one-line human-readable summary of what the hunk does.",
-      "maxLength": 160
+      "maxLength": 80
     },
     "details": {
       "type": "string",
@@ -70,5 +70,5 @@
       "enum": ["v1"]
     }
   },
-  "additionalProperties": false
+  "additionalProperties": true
 }

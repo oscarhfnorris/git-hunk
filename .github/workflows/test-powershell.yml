@@ -10,10 +10,15 @@ on:
     paths:
       - "buildScripts/**"
 
+permissions:
+  contents: read
+
 jobs:
   pester:
     name: Pester (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
+    permissions:
+      contents: read
     strategy:
       fail-fast: false
       matrix:

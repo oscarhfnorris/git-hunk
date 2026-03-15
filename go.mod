@@ -1,6 +1,8 @@
 module github.com/oscarhfnorris/git-hunk
 
-go 1.24.13
+go 1.24.0
+
+toolchain go1.24.13
 
 require (
 	github.com/BurntSushi/toml v1.6.0

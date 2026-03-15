@@ -5,10 +5,14 @@ on:
     branches: [main]
     types: [opened, edited, synchronize, reopened]
 
+permissions: {}
+
 jobs:
   pr-title:
     name: Conventional Commit title
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
     steps:
       - name: Validate PR title
         uses: amannn/action-semantic-pull-request@v5
@@ -31,6 +35,7 @@ jobs:
   branch-name:
     name: Branch naming convention
     runs-on: ubuntu-latest
+    permissions: {}
     steps:
       - name: Check branch name
         run: |

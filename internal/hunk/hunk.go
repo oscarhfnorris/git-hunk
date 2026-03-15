@@ -51,7 +51,8 @@ func normalise(s string) string {
 			sb.WriteByte('\n')
 		}
 		first = false
-		sb.WriteString(strings.TrimRight(scanner.Text(), " \t\r"))
+		// Scanner already strips \r from CRLF; only strip trailing spaces/tabs.
+		sb.WriteString(strings.TrimRight(scanner.Text(), " \t"))
 	}
 	return sb.String()
 }
