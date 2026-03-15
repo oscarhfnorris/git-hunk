@@ -1,0 +1,22 @@
+diff --git a/pkg/foo/foo.go b/pkg/foo/foo.go
+index aaaaaaa..bbbbbbb 100644
+--- a/pkg/foo/foo.go
++++ b/pkg/foo/foo.go
+@@ -3,6 +3,10 @@ package foo
+
+ // Foo does something.
+ func Foo() error {
++	if err := validate(); err != nil {
++		return err
++	}
+ 	return nil
+ }
+diff --git a/pkg/bar/bar.go b/pkg/bar/bar.go
+index ccccccc..ddddddd 100644
+--- a/pkg/bar/bar.go
++++ b/pkg/bar/bar.go
+@@ -1,4 +1,5 @@
+ package bar
+
++// Bar is a placeholder.
+ func Bar() {}

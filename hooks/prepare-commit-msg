@@ -1,0 +1,12 @@
+#!/bin/sh
+# git-hunk prepare-commit-msg hook
+# Optionally generates hunk metadata after each commit is prepared.
+# Install with: git hunk install-hooks
+set -e
+
+# Only run on normal commits, not merges/squashes.
+case "${2}" in
+  merge|squash) exit 0 ;;
+esac
+
+git hunk generate || true

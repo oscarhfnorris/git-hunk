@@ -1,0 +1,60 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "pwsh -NoLogo -NonInteractive -File buildScripts/build.ps1",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$go"]
+    },
+    {
+      "label": "build (release)",
+      "type": "shell",
+      "command": "pwsh -NoLogo -NonInteractive -File buildScripts/build.ps1 -Release",
+      "group": "build",
+      "problemMatcher": ["$go"]
+    },
+    {
+      "label": "test",
+      "type": "shell",
+      "command": "pwsh -NoLogo -NonInteractive -File buildScripts/test.ps1",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": ["$go"]
+    },
+    {
+      "label": "test (coverage)",
+      "type": "shell",
+      "command": "pwsh -NoLogo -NonInteractive -File buildScripts/test.ps1 -Coverage",
+      "group": "test",
+      "problemMatcher": ["$go"]
+    },
+    {
+      "label": "lint",
+      "type": "shell",
+      "command": "pwsh -NoLogo -NonInteractive -File buildScripts/lint.ps1",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "generate",
+      "type": "shell",
+      "command": "git hunk generate",
+      "group": "none",
+      "problemMatcher": []
+    },
+    {
+      "label": "pester",
+      "type": "shell",
+      "command": "pwsh -NoLogo -NonInteractive -File buildScripts/run-pester.ps1",
+      "group": "test",
+      "problemMatcher": []
+    }
+  ]
+}
