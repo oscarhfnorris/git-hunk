@@ -1,0 +1,50 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "git hunk generate",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}/cmd/git-hunk",
+      "args": ["generate"],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "git hunk show",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}/cmd/git-hunk",
+      "args": ["show"],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "git hunk push",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}/cmd/git-hunk",
+      "args": ["push"],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "git hunk fetch",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}/cmd/git-hunk",
+      "args": ["fetch"],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "git hunk verify",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}/cmd/git-hunk",
+      "args": ["verify"],
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

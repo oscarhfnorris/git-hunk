@@ -1,0 +1,44 @@
+name: Test PowerShell
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "buildScripts/**"
+  pull_request:
+    branches: [main]
+    paths:
+      - "buildScripts/**"
+
+permissions:
+  contents: read
+
+jobs:
+  pester:
+    name: Pester (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install PowerShell 7 (Ubuntu)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y powershell
+
+      - name: Run Pester tests
+        shell: pwsh
+        run: ./buildScripts/run-pester.ps1 -CI -Coverage -TestType All
+
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pester-coverage-${{ matrix.os }}
+          path: coverage-ps.xml

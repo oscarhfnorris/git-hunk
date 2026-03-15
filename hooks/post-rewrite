@@ -1,0 +1,6 @@
+#!/bin/sh
+# git-hunk post-rewrite hook
+# Re-generates hunk metadata after amend or rebase.
+# Install with: git hunk install-hooks
+set -e
+git hunk generate || true

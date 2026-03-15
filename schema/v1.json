@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/oscarhfnorris/git-hunk/schema/v1.json",
+  "title": "HunkMetadata",
+  "description": "Per-hunk semantic metadata blob stored under refs/meta/hunks.",
+  "type": "object",
+  "required": [
+    "hunk_hash",
+    "file",
+    "old_start",
+    "old_lines",
+    "new_start",
+    "new_lines",
+    "summary",
+    "generated_by",
+    "generated_at",
+    "schema_version"
+  ],
+  "properties": {
+    "hunk_hash": {
+      "type": "string",
+      "description": "SHA-256 hex digest of the normalised hunk body (64 chars).",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "file": {
+      "type": "string",
+      "description": "Path of the modified file relative to the repository root."
+    },
+    "old_start": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "First line number in the old file covered by this hunk."
+    },
+    "old_lines": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of lines from the old file in this hunk."
+    },
+    "new_start": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "First line number in the new file covered by this hunk."
+    },
+    "new_lines": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of lines in the new file in this hunk."
+    },
+    "summary": {
+      "type": "string",
+      "description": "Short (≤80 chars) one-line human-readable summary of what the hunk does.",
+      "maxLength": 80
+    },
+    "details": {
+      "type": "string",
+      "description": "Extended Markdown explanation of the hunk's purpose."
+    },
+    "generated_by": {
+      "type": "string",
+      "description": "Tool or agent that produced this metadata (e.g. 'git-hunk/v0.1.0')."
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "RFC 3339 timestamp when this metadata was written."
+    },
+    "schema_version": {
+      "type": "string",
+      "description": "Version of this schema (currently 'v1').",
+      "enum": ["v1"]
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,29 @@
+# Binaries
+dist/
+git-hunk
+*.exe
+
+# Go build artefacts
+*.out
+*.test
+*.prof
+vendor/
+
+# Coverage
+coverage/
+coverage.out
+coverage-ps.xml
+
+# Environment / secrets
+.env
+*.env.local
+
+# Editor
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
